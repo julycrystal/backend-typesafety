@@ -1,0 +1,34 @@
+{
+  "name": "typescript-end-to-end-safety",
+  "version": "1.0.0",
+  "license": "ISC",
+  "scripts": {
+    "start": "ts-node src/server/index.ts",
+    "generate": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.6",
+    "@graphql-tools/graphql-file-loader": "^7.3.3",
+    "@graphql-tools/load": "^7.5.1",
+    "@graphql-tools/schema": "^8.3.1",
+    "@prisma/client": "^3.7.0",
+    "apollo-server-express": "^3.6.1",
+    "express": "^4.17.2",
+    "graphql": "^16.2.0",
+    "next": "^12.0.7",
+    "prisma": "^3.7.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.3.1",
+    "@graphql-codegen/typescript": "2.4.2",
+    "@graphql-codegen/typescript-graphql-files-modules": "^2.1.1",
+    "@graphql-codegen/typescript-operations": "^2.2.2",
+    "@graphql-codegen/typescript-react-apollo": "3.2.3",
+    "@graphql-codegen/typescript-resolvers": "2.4.3",
+    "@types/react": "^17.0.38",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}

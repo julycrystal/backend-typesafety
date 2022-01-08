@@ -1,0 +1,14 @@
+query hello {
+  hello
+}
+
+query getUsers {
+  users {
+    id 
+    email
+    posts {
+      title
+      pubblished
+    }
+  }
+}
