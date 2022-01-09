@@ -13,16 +13,33 @@ const Index = () => {
             style={{
               display: "flex",
               flexDirection: "column",
+              margin: "20px",
             }}
           >
-            <span>id: {user.id}</span>
-            <span>email: {user.email}</span>
-            <span>posts: </span>
+            <span>
+              <b>id:</b> {user.id}
+            </span>
+            <span>
+              <b>email:</b> {user.email}
+            </span>
+            <span>
+              <b>posts:</b>{" "}
+            </span>
             {user.posts.map((post) => {
               return (
-                <div>
-                  Title: {post.title}
-                  Published: {post.pubblished}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: "10px",
+                  }}
+                >
+                  <span>
+                    <b>Title:</b> {post.title}
+                  </span>
+                  <span>
+                    <b>Published:</b> {String(post.pubblished)}
+                  </span>
                 </div>
               );
             })}
