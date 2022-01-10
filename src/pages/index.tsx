@@ -1,13 +1,13 @@
-import { useGetUsersQuery } from "../generated/graphql";
+import { useGetTweetsQuery } from "../generated/graphql";
 
 const Index = () => {
-  const { data } = useGetUsersQuery();
+  const { data } = useGetTweetsQuery();
 
   if (!data) return <div>Loading!</div>;
 
   return (
     <div>
-      {data.users.map((user) => {
+      {data.tweets.map((tweet) => {
         return (
           <div
             style={{
@@ -17,32 +17,11 @@ const Index = () => {
             }}
           >
             <span>
-              <b>id:</b> {user.id}
+              <b>@</b> {tweet.user.userName}
             </span>
-            <span>
-              <b>email:</b> {user.email}
-            </span>
-            <span>
-              <b>posts:</b>{" "}
-            </span>
-            {user.posts.map((post) => {
-              return (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginLeft: "10px",
-                  }}
-                >
-                  <span>
-                    <b>Title:</b> {post.title}
-                  </span>
-                  <span>
-                    <b>Published:</b> {String(post.pubblished)}
-                  </span>
-                </div>
-              );
-            })}
+            <span>{tweet.content}</span>
+            <span>👎🏽 {tweet.dislikes}</span>
+            <span>{new Date(tweet.date).toLocaleDateString()}</span>
           </div>
         );
       })}

@@ -4,6 +4,7 @@ import { addResolversToSchema } from "@graphql-tools/schema";
 import { join } from "path";
 import { Resolvers } from "../../generated/graphql";
 import { prisma } from "../../prisma";
+import { getTweetForUser } from "./user";
 
 const schema = loadSchemaSync(join(__dirname, "./schema.graphql"), {
   loaders: [new GraphQLFileLoader()],
@@ -14,28 +15,24 @@ const resolvers: Resolvers = {
     hello: () => {
       return "Hello world!";
     },
-    users: async () => {
-      return await prisma.user.findMany({
-        select: {
-          id: true,
-          email: true,
+    tweets: async () => {
+      const tweets = await prisma.tweet.findMany({
+        include: {
+          author: true,
         },
+      });
+
+      return tweets.map((tweet) => {
+        return {
+          ...tweet,
+          date: tweet.date.toUTCString(),
+          user: tweet.author,
+        };
       });
     },
   },
   User: {
-    posts: async (parent) => {
-      return await prisma.post.findMany({
-        where: {
-          authorId: parent.id,
-        },
-        select: {
-          title: true,
-          author: true,
-          pubblished: true,
-        },
-      });
-    },
+    tweets: async (parent) => await getTweetForUser(parent.id),
   },
 };
 

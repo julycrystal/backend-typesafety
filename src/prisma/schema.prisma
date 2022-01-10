@@ -11,16 +11,17 @@ datasource db {
 }
 
 model User {
-  id    String  @id @default(cuid())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id       String  @id @default(cuid())
+  email    String  @unique
+  userName String?
+  tweets   Tweet[]
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  pubblished Boolean @default(true)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  String?
+model Tweet {
+  id       Int      @id @default(autoincrement())
+  content  String
+  date     DateTime
+  dislikes Int
+  author   User?    @relation(fields: [authorId], references: [id])
+  authorId String?
 }

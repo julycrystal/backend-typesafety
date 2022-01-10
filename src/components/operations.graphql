@@ -2,13 +2,13 @@ query hello {
   hello
 }
 
-query getUsers {
-  users {
-    id 
-    email
-    posts {
-      title
-      pubblished
+query getTweets {
+  tweets {
+    content
+    date
+    dislikes
+    user {
+      userName
     }
   }
 }

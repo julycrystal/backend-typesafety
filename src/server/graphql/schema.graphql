@@ -1,16 +1,18 @@
 type Query {
   hello: String
-  users: [User!]
+  tweets: [Tweet]
 }
 
 type User {
   id: ID!
   email: String!
-  posts: [Post!]
+  userName: String!
+  tweets: [Tweet]
 }
 
-type Post {
-  title: String!
-  author: User!
-  pubblished: Boolean!
+type Tweet {
+  content: String!
+  date: String!
+  dislikes: Int!
+  user: User!
 }
