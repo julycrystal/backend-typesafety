@@ -21,7 +21,7 @@ model Tweet {
   id       Int      @id @default(autoincrement())
   content  String
   date     DateTime
-  dislikes Int
+  likes    Int
   author   User?    @relation(fields: [authorId], references: [id])
   authorId String?
 }

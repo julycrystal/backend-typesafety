@@ -17,7 +17,7 @@ export const getTweetForUser = async (userId: string) => {
     },
     select: {
       content: true,
-      dislikes: true,
+      likes: true,
       date: true,
     },
   });

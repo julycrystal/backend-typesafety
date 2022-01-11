@@ -20,7 +20,7 @@ const Index = () => {
               <b>@</b> {tweet.user.userName}
             </span>
             <span>{tweet.content}</span>
-            <span>👎🏽 {tweet.dislikes}</span>
+            <span>👍🏽 {tweet.likes}</span>
             <span>{new Date(tweet.date).toLocaleDateString()}</span>
           </div>
         );

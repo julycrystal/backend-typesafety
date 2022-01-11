@@ -13,6 +13,6 @@ type User {
 type Tweet {
   content: String!
   date: String!
-  dislikes: Int!
+  likes: Int!
   user: User!
 }
